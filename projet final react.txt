@@ -1,0 +1,39 @@
+Projet React — Testeur de Résilience d’API
+
+Objectif général
+
+Développer une application React permettant de requêter massivement une API, dans le but de :
+	mesurer la résilience du service (réussite, échecs, lenteurs)
+	calculer des statistiques précises de performances
+	supporter l’injection dynamique de middlewares JS dans le navigateur
+
+Comportement attendu de l'application
+1. Interface utilisateur
+	Champ pour saisir l’URL de l’API cible
+	Champ pour choisir le nombre de requêtes à envoyer
+	Bouton “Lancer le test”
+	Liste des middlewares actifs
+	Affichage des statistiques en temps réel ou finale
+
+2. Gestion des requêtes
+	Requêtes envoyées massivement ou par salves
+	Possibilité de définir un délai (intervalle) entre les requêtes
+	Utilisation de fetch() ou équivalent
+
+3. Middlewares dynamiques
+	Middleware chargé depuis un nom de fichier
+	Les middlewares sont exécutés avant l’envoi de chaque requête
+	Possibilité de chaîner plusieurs middlewares (req, res, next)
+
+Statistiques à calculer et afficher
+Pour chaque campagne de requêtes :
+	Nombre total de requêtes envoyées
+	Nombre de réussites (HTTP 2xx ou selon API)
+	Nombre d’échecs répartis par catégorie :
+	erreurs réseau (ex: refus de connexion)
+	erreurs HTTP 4xx (ex: requête invalide)
+	erreurs HTTP 5xx (ex: erreur interne serveur)
+	Temps moyen de réponse
+	Temps min et max
+	Taux de réussite (%)
+Pas besoin d’un graphique, mais les stats doivent être lisibles, synthétiques et fiables
